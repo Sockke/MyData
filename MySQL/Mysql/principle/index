@@ -1,0 +1,20 @@
+MySQL在磁盘上的存储: 表结构+表数据+索引
+
+(B+树索引)
+MyISAM: 数据和索引分开存放, 非聚集索引
+InnoDB: 数据和索引一起存放, 聚集索引
+Memory: (哈希索引)
+
+查看SQL的执行计划:
+explain + SQL
+
+[索引]: 主键索引+辅助索引
+创建单列索引:
+create index name_idx on user(name);
+创建多列索引:(只有当多列索引所涉及的字段全部出现的时候, 多列索引才起效果)
+create index name_age_idx on user(name, age); (涉及filesort也需要为排序字段创建索引)
+删除索引:
+drop index name_idx on user;
+
+什么时候对字段加索引?
+

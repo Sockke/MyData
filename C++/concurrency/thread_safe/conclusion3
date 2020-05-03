@@ -1,0 +1,50 @@
+同步和异步关注的是消息通信的机制
+同步: 所谓同步就是一直等待; 直到拿到返回结果, 再进行下一步操作
+异步: 所谓异步就是不等待, 等通知; 在拿到返回结果之前去执行其他操作, 拿到返回值通知执行指定操作
+[同步并发编程]:
+  通过条件变量和互斥锁来实现同步并发 
+  1. 条件变量定义:
+    std::condition_variable cond; 
+  2. 等待
+    cond.wait(mutex, condition) 
+    condition: 条件函数, 条件不符合解锁陷入阻塞; 条件符合, 加锁唤醒
+    与Linux中的pthread_cond_wait不同, 线程被唤醒后还需要进一步判断条件函数. 
+    这也存在一定的性能问题, 比如说线程会出现不定次数的"假唤醒", 即被唤醒的线程不满足条件函数.
+    但是这也保证了一定的线程安全, 不容易出现"危险唤醒"
+  3. 唤醒
+    cond.notify_one()  唤醒任意一个等待的线程
+    cond.notify_all()  唤醒所有等待的线程
+[异步并发编程]:
+  通过异步启动和期值来实现异步并发
+  1. 异步线程的启动
+    std::async(std::launch::async, func, argv...);
+    std::launch :是异步线程启动的属性; 
+      async直接启动新线程 --- 异步
+      deferred延迟启动(调用get或wait时启动), 不创建新线程  --- 类似于同步
+      默认是std::launch::async | std::launch::deferred, 系统自主选择其一
+    func: 线程入口函数
+    返回值: 返回一个future对象
+  2. 关联异步线程
+    std::future<int> fresult = std::async(...)
+  3. 获取线程返回值
+    fresult.get()
+    或者不关心返回值: fresult.wait()
+
+  std::async与std::thread的区别:
+    std::async可以控制线程的启动方式(异步直接创建新线程, 同步延迟执行)
+    std::async可以返回保存线程返回值结果的future对象, 方便等到线程返回值
+
+  [任务包装]:
+    通过packaged_task将待处理任务包装起来, 通过其他线程的处理后, 可以得到任务的处理结果
+    std::packaged_task<int(int, int)> mytask(sum);
+    std::thread t(std::ref(mytask), 1, 2)
+    cout << mytask.get_future().get() << endl;
+
+    std::packaged一般用于:  需要对多个任务被对应的线程处理后的结果进行下一步操作的场景
+    比如说线程池的管理 
+
+  [保存线程中间值]:
+    通过promiste来获取异步线程的中间值
+    std::promise<int> pral;
+    
+  future搭配async, packaged_task, promise可以很好的管理异步线程函数中的资源, 实现线程间资源的传递

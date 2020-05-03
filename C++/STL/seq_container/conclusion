@@ -1,0 +1,22 @@
+顺序容器:
+vector
+deque
+list
+关联容器:无序(链式哈希表) + 有序(红黑树)
+unordered_map
+unordered_set
+map
+set
+
+都有自己的底层数据结构, 都有自己标准的迭代器, 都有空间配置器
+
+容器适配器:
+stack -> deque(内存使用效率好, 分段连续, 内存分配的效率和成功率较高)
+queue -> deque
+priority_queue -> vector(针对下标来组织堆的关系, 默认是大根堆)
+
+没有自己的数据结构, 都是依赖其他顺序容器实现的
+没有提供迭代器
+没有提供空间适配器
+
+

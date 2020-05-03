@@ -1,0 +1,39 @@
+2020-03-02 20:23:17,915 [myid:] - INFO  [main:QuorumPeerConfig@136] - Reading configuration from: /usr/local/zookeeper/zookeeper-3.4.14/bin/../conf/zoo.cfg
+2020-03-02 20:23:17,921 [myid:] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+2020-03-02 20:23:17,921 [myid:] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+2020-03-02 20:23:17,921 [myid:] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+2020-03-02 20:23:17,921 [myid:] - WARN  [main:QuorumPeerMain@116] - Either no config or no quorum defined in config, running  in standalone mode
+2020-03-02 20:23:17,933 [myid:] - INFO  [main:QuorumPeerConfig@136] - Reading configuration from: /usr/local/zookeeper/zookeeper-3.4.14/bin/../conf/zoo.cfg
+2020-03-02 20:23:17,933 [myid:] - INFO  [main:ZooKeeperServerMain@98] - Starting server
+2020-03-02 20:23:17,939 [myid:] - INFO  [main:Environment@100] - Server environment:zookeeper.version=3.4.14-4c25d480e66aadd371de8bd2fd8da255ac140bcf, built on 03/06/2019 16:18 GMT
+2020-03-02 20:23:17,940 [myid:] - INFO  [main:Environment@100] - Server environment:host.name=localhost
+2020-03-02 20:23:17,940 [myid:] - INFO  [main:Environment@100] - Server environment:java.version=1.8.0_232
+2020-03-02 20:23:17,940 [myid:] - INFO  [main:Environment@100] - Server environment:java.vendor=Oracle Corporation
+2020-03-02 20:23:17,940 [myid:] - INFO  [main:Environment@100] - Server environment:java.home=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.el7_7.x86_64/jre
+2020-03-02 20:23:17,940 [myid:] - INFO  [main:Environment@100] - Server environment:java.class.path=/usr/local/zookeeper/zookeeper-3.4.14/bin/../zookeeper-server/target/classes:/usr/local/zookeeper/zookeeper-3.4.14/bin/../build/classes:/usr/local/zookeeper/zookeeper-3.4.14/bin/../zookeeper-server/target/lib/*.jar:/usr/local/zookeeper/zookeeper-3.4.14/bin/../build/lib/*.jar:/usr/local/zookeeper/zookeeper-3.4.14/bin/../lib/slf4j-log4j12-1.7.25.jar:/usr/local/zookeeper/zookeeper-3.4.14/bin/../lib/slf4j-api-1.7.25.jar:/usr/local/zookeeper/zookeeper-3.4.14/bin/../lib/netty-3.10.6.Final.jar:/usr/local/zookeeper/zookeeper-3.4.14/bin/../lib/log4j-1.2.17.jar:/usr/local/zookeeper/zookeeper-3.4.14/bin/../lib/jline-0.9.94.jar:/usr/local/zookeeper/zookeeper-3.4.14/bin/../lib/audience-annotations-0.5.0.jar:/usr/local/zookeeper/zookeeper-3.4.14/bin/../zookeeper-3.4.14.jar:/usr/local/zookeeper/zookeeper-3.4.14/bin/../zookeeper-server/src/main/resources/lib/*.jar:/usr/local/zookeeper/zookeeper-3.4.14/bin/../conf:.:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.el7_7.x86_64/lib/dt.jar:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.el7_7.x86_64/lib/tools.jar
+2020-03-02 20:23:17,940 [myid:] - INFO  [main:Environment@100] - Server environment:java.library.path=/opt/rh/devtoolset-6/root/usr/lib64:/opt/rh/devtoolset-6/root/usr/lib:/opt/rh/devtoolset-6/root/usr/lib64:/opt/rh/devtoolset-6/root/usr/lib:/home/sock/.VimForCpp/vim/bundle/YCM.so/el7.x86_64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2020-03-02 20:23:17,940 [myid:] - INFO  [main:Environment@100] - Server environment:java.io.tmpdir=/tmp
+2020-03-02 20:23:17,940 [myid:] - INFO  [main:Environment@100] - Server environment:java.compiler=<NA>
+2020-03-02 20:23:17,941 [myid:] - INFO  [main:Environment@100] - Server environment:os.name=Linux
+2020-03-02 20:23:17,942 [myid:] - INFO  [main:Environment@100] - Server environment:os.arch=amd64
+2020-03-02 20:23:17,942 [myid:] - INFO  [main:Environment@100] - Server environment:os.version=3.10.0-514.el7.x86_64
+2020-03-02 20:23:17,942 [myid:] - INFO  [main:Environment@100] - Server environment:user.name=root
+2020-03-02 20:23:17,942 [myid:] - INFO  [main:Environment@100] - Server environment:user.home=/root
+2020-03-02 20:23:17,942 [myid:] - INFO  [main:Environment@100] - Server environment:user.dir=/home/sock/SaoLibrary/SaoLibrary/MyData/Project/RpcServer/src
+2020-03-02 20:23:17,954 [myid:] - INFO  [main:ZooKeeperServer@836] - tickTime set to 2000
+2020-03-02 20:23:17,954 [myid:] - INFO  [main:ZooKeeperServer@845] - minSessionTimeout set to -1
+2020-03-02 20:23:17,954 [myid:] - INFO  [main:ZooKeeperServer@854] - maxSessionTimeout set to -1
+2020-03-02 20:23:17,960 [myid:] - INFO  [main:ServerCnxnFactory@117] - Using org.apache.zookeeper.server.NIOServerCnxnFactory as server connection factory
+2020-03-02 20:23:17,973 [myid:] - INFO  [main:NIOServerCnxnFactory@89] - binding to port 0.0.0.0/0.0.0.0:2181
+2020-03-02 20:24:04,750 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@222] - Accepted socket connection from /0:0:0:0:0:0:0:1:41552
+2020-03-02 20:24:04,755 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /0:0:0:0:0:0:0:1:41552
+2020-03-02 20:24:04,758 [myid:] - INFO  [SyncThread:0:FileTxnLog@216] - Creating new log file: log.30
+2020-03-02 20:24:04,778 [myid:] - INFO  [SyncThread:0:ZooKeeperServer@694] - Established session 0x1000264f28a0000 with negotiated timeout 30000 for client /0:0:0:0:0:0:0:1:41552
+2020-03-02 20:24:10,007 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@222] - Accepted socket connection from /127.0.0.1:57870
+2020-03-02 20:24:10,010 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@949] - Client attempting to establish new session at /127.0.0.1:57870
+2020-03-02 20:24:10,018 [myid:] - INFO  [SyncThread:0:ZooKeeperServer@694] - Established session 0x1000264f28a0001 with negotiated timeout 30000 for client /127.0.0.1:57870
+2020-03-02 20:24:27,386 [myid:] - INFO  [ProcessThread(sid:0 cport:2181)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x1000264f28a0000
+2020-03-02 20:24:27,405 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@376] - Unable to read additional data from client sessionid 0x1000264f28a0000, likely client has closed socket
+2020-03-02 20:24:27,406 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /0:0:0:0:0:0:0:1:41552 which had sessionid 0x1000264f28a0000
+2020-03-02 20:24:33,331 [myid:] - INFO  [ProcessThread(sid:0 cport:2181)::PrepRequestProcessor@487] - Processed session termination for sessionid: 0x1000264f28a0001
+2020-03-02 20:24:33,341 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1056] - Closed socket connection for client /127.0.0.1:57870 which had sessionid 0x1000264f28a0001
