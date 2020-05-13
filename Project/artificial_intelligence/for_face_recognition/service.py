@@ -8,7 +8,7 @@ import numpy
 
 class FRService(object):
     def __init__(self):
-        self.imgModel = imageModel.ImageModel() 
+        self.imgModel = imageModel.ImageModel()
         # 已知的人脸数据
         self.known_encodings = []  # 人脸编码
         self.known_names = []  # 人脸名称
@@ -46,10 +46,16 @@ class FRService(object):
             # 人脸识别
             ismatches = face_recognition.compare_faces(self.known_encodings, unknown_encoding)
             name = 'unknown'
+            face_distances = face_recognition.face_distance(self.known_encodings, unknown_encoding)
+            best_match_index = numpy.argmin(face_distances)
+            if ismatches[best_match_index]:
+                name = self.known_names[best_match_index]
+            '''
             for ismatch, known_name in zip(ismatches, self.known_names):
                 if ismatch:
                     name = known_name
                     break
+            '''
             # 标记人脸
             cv2.rectangle(unknown_img, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
             cv2.putText(unknown_img, name, (left+6, bottom-6), cv2.FONT_HERSHEY_DUPLEX, 1, (255, 255, 255), 2)
@@ -59,7 +65,9 @@ class FRService(object):
         cv2.resizeWindow('image', 640, 480)
         cv2.imshow('image', unknown_img)
         # 阻塞窗口
-        cv2.waitKey(0)
+        while True:
+            if cv2.waitKey(0) & 0xFF == ord('q'):
+                break
         # 销毁窗口
         cv2.destroyAllWindows()
 
@@ -74,7 +82,7 @@ class FRService(object):
             if not ret:
                 # 视频捕获失败
                 break
-            
+
             # Resize frame of video to 1/4 size for faster face recognition processing
             small_frame = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)
             # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
@@ -97,7 +105,7 @@ class FRService(object):
                 #     name = known_face_names[first_match_index]
 
                 # Or instead, use the known face with the smallest distance to the new face
-                
+
                 face_distances = face_recognition.face_distance(self.known_encodings, unknown_encoding)
                 best_match_index = numpy.argmin(face_distances)
                 if ismatches[best_match_index]:
@@ -143,9 +151,9 @@ class FRService(object):
             '''
             # 展示图片
             cv2.namedWindow('video', 0)
-            cv2.resizeWindow('video', 640, 480) 
+            cv2.resizeWindow('video', 640, 480)
             cv2.imshow('video', img)
-            
+
             # 阻塞窗口
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 # 录入键盘
@@ -154,7 +162,7 @@ class FRService(object):
         video.release()
         # 销毁窗口
         cv2.destroyAllWindows()
-       
+
     def image_add(self, filename, name):
         '''添加人脸资料'''
         # img = cv2.imread(filename)
