@@ -1,0 +1,34 @@
+// 声明protobuf的版本 
+syntax = "proto3";
+
+// 声明代码所在的包, 对应于C++就是namespace
+package login_proto;
+
+// 定义消息状态类型
+message ResultInfo {
+  int32 errcode = 1;
+  bytes errmsg = 2;
+}
+
+// 定义一个User类型
+message User {
+  bytes name = 1;
+  int32 age = 2;
+  enum Gender {
+    MALE = 0;
+    FEMALE = 1;
+  }
+  Gender gender = 3;
+}
+
+// 定义查询好友请求消息类型
+message FriendsRequest {
+  int32 userid = 1; 
+}
+
+// 定义查询好友响应信息类型
+message FriendsResponse {
+  ResultInfo info = 1;
+  repeated User friend_list = 2;
+}
+
