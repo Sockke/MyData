@@ -48,8 +48,11 @@ $ git pull
 #### git 撤销命令
 
 ```shell
-# 将工作区修改的工程 撤销
-$ git checkout --main.cpp
+# 将工作区修改的工程-不包括添加的
+# 撤销单个文件
+$ git checkout -- main.cpp
+# 撤销全部
+$ git checkout -- .
 ```
 
 ```shell
@@ -62,7 +65,10 @@ $ git reset HEAD main.cpp
 # 查看最新版本及以前的commit id
 $ git log
 # 修改HEAD指针回退到某个版本
+# 强制回退，所有commit的内容都被抛弃
 $ git reset --hard commit-id
+# 取消当前的commit
+$ git reset HEAD^
 
 # 将本地仓库中提交的工程 反撤销
 # 查看所有版本的commit id
@@ -79,6 +85,49 @@ $ git log
 $ git reset --hard commit-id
 # 将落后的版本强制推送到远程仓库(保证没有其他人在远程仓库进行更新)
 $ git push -f origin master
+```
+
+#### git 创建远程分支
+
+```
+# 在当前分支下创建本地分支
+$ git checkout -b dev
+# 将本地分支推送到远程仓库(创建远程分支)
+$ git push origin dev
+# 将本地分之关联到对应的远程分支
+$ git branch --set-upstream-to=origin/dev
+```
+
+#### git 合并多个commit
+
+```
+# 查看commit记录
+$ git log
+# 合并前2条commit
+$ git rebase -i HEAD~2
+# 将需要合并的commit的pick改为s
+pick -> s
+# 如果有冲突解决
+$ git status
+$ git add .
+$ git rebase --continue
+# 将合并后的commit推送到远程
+$ git push -f origin dev
+```
+
+#### fork后同步upstream的更新
+
+```
+# 查看远程状态
+$ git remote -v
+# 确定一个需要同步的upstream仓库(比如说llvm-project)
+$ git remote add upstream llvm-project
+# 获取upstream的更新情况
+$ git fetch upstream
+# 合并upstream到本地fork主分支
+$ git merge upstream/main
+# 将更新推送到远程fork仓库中
+$ git push origin main
 ```
 
 #### git 解决推送冲突
